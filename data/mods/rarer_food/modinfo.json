@@ -1,0 +1,25 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "rarer_food",
+    "name": "Rarer Food",
+    "authors": [ "Procyonae" ],
+    "description": "Makes food 10x rarer",
+    "category": "content",
+    "dependencies": [ "dda" ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_rarer_food_start",
+    "eoc_type": "EVENT",
+    "required_event": "game_start",
+    "effect": [ { "set_item_category_spawn_rates": [ { "spawn_rate": 0.1, "id": "food" } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_rarer_food_load",
+    "eoc_type": "EVENT",
+    "required_event": "game_load",
+    "effect": [ { "set_item_category_spawn_rates": [ { "spawn_rate": 0.1, "id": "food" } ]
+  }
+]
