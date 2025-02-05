@@ -1,0 +1,77 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_NH_item_difficulty_custom",
+    "effect": [
+      { "math": [ "NH_item_difficulty = 9001" ] },
+      {
+        "set_item_category_spawn_rates": [
+          { "spawn_rate": 1.0, "id": "guns" },
+          { "spawn_rate": 1.0, "id": "magazines" },
+          { "spawn_rate": 1.0, "id": "ammo" },
+          { "spawn_rate": 1.0, "id": "weapons" },
+          { "spawn_rate": 1.0, "id": "tools" },
+          { "spawn_rate": 1.0, "id": "clothing" },
+          { "spawn_rate": 1.0, "id": "food" },
+          { "spawn_rate": 1.0, "id": "drugs" },
+          { "spawn_rate": 1.0, "id": "manuals" },
+          { "spawn_rate": 1.0, "id": "books" },
+          { "spawn_rate": 1.0, "id": "mods" },
+          { "spawn_rate": 1.0, "id": "veh_parts" },
+          { "spawn_rate": 1.0, "id": "other" },
+          { "spawn_rate": 1.0, "id": "fuel" },
+          { "spawn_rate": 1.0, "id": "spare_parts" },
+          { "spawn_rate": 1.0, "id": "tool_magazine" },
+          { "spawn_rate": 1.0, "id": "armor" },
+          {
+            "//": "The following categories are excempt from changes in No Hope for various reasons but are included here for you to alter at your own discretion.",
+            "spawn_rate": 1.0,
+            "id": "maps"
+          },
+          { "spawn_rate": 1.0, "id": "mutagen" },
+          { "spawn_rate": 1.0, "id": "bionics" },
+          { "spawn_rate": 1.0, "id": "currency" },
+          { "spawn_rate": 1.0, "id": "seeds" },
+          { "spawn_rate": 1.0, "id": "ma_manuals" },
+          { "spawn_rate": 1.0, "id": "traps" },
+          { "spawn_rate": 1.0, "id": "chems" },
+          { "spawn_rate": 1.0, "id": "container" },
+          { "spawn_rate": 1.0, "id": "artifacts" },
+          { "spawn_rate": 1.0, "id": "keys" },
+          { "spawn_rate": 1.0, "id": "corpses" },
+          { "spawn_rate": 1.0, "id": "exosuit" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_NH_difficultycheck",
+    "condition": { "math": [ "!has_var( NH_item_difficulty )" ] },
+    "effect": { "run_eocs": "EOC_NH_ask_custom_difficulty" },
+    "false_effect": [
+      {
+        "switch": { "math": [ "NH_item_difficulty" ] },
+        "cases": [
+          { "case": 0, "effect": { "run_eocs": "EOC_NH_item_difficulty_0" } },
+          { "case": 1, "effect": { "run_eocs": "EOC_NH_item_difficulty_1" } },
+          { "case": 2, "effect": { "run_eocs": "EOC_NH_item_difficulty_2" } },
+          { "case": 9001, "effect": { "run_eocs": "EOC_NH_item_difficulty_custom" } }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_NH_ask_custom_difficulty",
+    "effect": [
+      {
+        "run_eoc_selector": [ "EOC_NH_item_difficulty_custom", "EOC_NH_set_difficulty" ],
+        "names": [ "Custom difficulty", "Others" ],
+        "title": "Select a difficulty",
+        "keys": [ "1", "2" ],
+        "descriptions": [ "Use your custom difficulty.", "Use one of the provided difficulties instead." ]
+      }
+    ]
+  }
+]

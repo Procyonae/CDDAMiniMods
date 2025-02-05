@@ -1,0 +1,13 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "no_hope_custom_difficulty",
+    "name": "No Hope Custom Difficulty",
+    "authors": [ "Procyonae" ],
+    "maintainers": [ "Procyonae" ],
+    "description": "Adds a custom difficulty to No Hope to maintain your configuration between updates more conveniently.",
+    "category": "content",
+    "dependencies": [ "no_hope" ],
+    "version": "1.0"
+  }
+]
